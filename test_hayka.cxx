@@ -1,7 +1,10 @@
+#include <fstream>
 #include <iostream>
 #include <string>
+#include <climits>
 #include <ctime>
-#include <fstream>
+#include <unistd.h>
+#include "connect.h"
 
 using namespace std;
 
@@ -14,9 +17,10 @@ class TestCar{
 			return rnd;
 		}
 
-		string id_car(){
-			string name="car_test";
-			return name;
+		char* id_car(){
+			char hostname[HOST_NAME_MAX];
+			gethostname(hostname,HOST_NAME_MAX);
+			return move(hostname);
 		}
 
 
@@ -65,7 +69,7 @@ class TestCar{
 		int presion_combustible(){
 			return random_data (0,60);
 		}
-		int velocidad(int v,int a){
+		int velocidad(int vi,int a){
 			int current=0;
 			current=current+a;
 			if(current<0)
@@ -120,9 +124,9 @@ int main (void){
 			int a = test.aceleracion();
 			int c = test.velocidad(0,a);
 			ofstream file;
-			file.open("info.txt");
+			file.open("info_"+to_string(i)+".txt");
 			file << test.id_car() << endl;
-			file << test.aceleracion() << endl;
+			file << a << endl;
 			file << test.alta_presion() << endl;
 			file << test.angulo_arbol_levas() << endl;
 			file << test.angulo_ciguenal() << endl;
@@ -143,11 +147,12 @@ int main (void){
 			file << test.temp_motor() << endl;
 			file << test.temp_refrigerante() << endl;
 			file << test.presion_combustible() << endl;
-			file << test.velocidad(c,a) << endl;
+			file << test.velocidad(c,a) <<"v" << endl;
 			file << test.viraje() << endl;
 			file << test.volante_motor() << endl;
 			file << test.vuelco() << endl;
 			file.close();
+			sent_data();
 
 	}
 
