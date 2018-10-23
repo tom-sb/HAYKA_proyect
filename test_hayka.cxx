@@ -1,7 +1,7 @@
 #include <iostream>
+#include <string>
 #include <ctime>
 #include <fstream>
-#include "connect.h"
 
 using namespace std;
 
@@ -14,9 +14,11 @@ class TestCar{
 			return rnd;
 		}
 
-		int id_car(){
-			return 1111111;
+		char* id_car(){
+			char name[100]={"car_1"};
+			return *name;
 		}
+
 
 		int temp_motor(){
 			return random_data (70,160);
@@ -63,9 +65,17 @@ class TestCar{
 		int presion_combustible(){
 			return random_data (0,60);
 		}
-		int velocidad(){
-			return random_data (0,300);
+		int velocidad(int v,int a){
+			int current=0;
+			current=current+a;
+			if(current<0)			
+				return current=0;
+			else if (current>350)
+				return current=350;
+			else
+				return current;
 		}
+
 		int rotacion_eje_transmision(){
 			return random_data (0,10000);
 		}
@@ -84,8 +94,8 @@ class TestCar{
 		int par_motor(){
 			return random_data (-200,200);
 		}
-		int acelercion(){
-			return random_data (0,300);
+		int aceleracion(){
+			return random_data (-20,50);
 		}
 		int presion_deposito(){
 			return random_data (0,280);
@@ -107,10 +117,12 @@ int main (void){
 	int c=10;
 	TestCar test;
 	for(int i=1;i<=c;i++){
+			int a = test.aceleracion();
+			int c = test.velocidad(0,a);
 			ofstream file;
 			file.open("info.txt");
 			file << test.id_car() << endl;
-			file << test.acelercion() << endl;
+			file << test.aceleracion() << endl;
 			file << test.alta_presion() << endl;
 			file << test.angulo_arbol_levas() << endl;
 			file << test.angulo_ciguenal() << endl;
@@ -131,13 +143,12 @@ int main (void){
 			file << test.temp_motor() << endl;
 			file << test.temp_refrigerante() << endl;
 			file << test.presion_combustible() << endl;
-			file << test.velocidad() << endl;
+			file << test.velocidad(c,a) << endl;
 			file << test.viraje() << endl;
 			file << test.volante_motor() << endl;
 			file << test.vuelco() << endl;
 			file.close();
 
-			sent_data();
 	}
 
 	return 0;
