@@ -8,8 +8,9 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 
-void write_file(int val){
-	FILE *f = fopen("file.txt","a");
+void write_file(char const* name,int val){
+//	FILE *f = fopen("file.txt","a");
+	FILE *f = fopen(name,"a");
 	if (f == NULL){
 		printf("Error opening file!\n");
 		exit(1);
@@ -18,12 +19,20 @@ void write_file(int val){
 	fclose(f);
 }
 
+
+void create_file(char const* name){
+	FILE *f = fopen(name,"a");
+	fclose(f);
+}
+
+
 int main(int argc, char **argv){
 	if(argc > 1){
 		struct sockaddr_in server;
 		struct sockaddr_in client;
 		int fd, fd2, longitud_cliente, puerto;
 		char buf[100];
+		char name_file[100];
 		puerto = atoi(argv[1]);
  
 		//Configuracion del servidor
@@ -53,6 +62,7 @@ int main(int argc, char **argv){
 		//aceptar conexiones
 
 		int val;
+		
 
 		while(1) {
 			longitud_cliente = sizeof(struct sockaddr_in);
@@ -64,10 +74,19 @@ int main(int argc, char **argv){
  
  			recv(fd2,buf,100,0);
 			printf("%s\n",buf);
+			///////////////////////////////////
+			if(buf[0]=='c'){
+				strcpy(name_file,"");
+				strcpy(name_file,buf);
+				create_file(name_file);
+			}
+			////////////////////////////////////
 			val = atoi(buf);
-			write_file(val);
+			write_file(name_file,val);
+
 //			printf("%d\n",val);
 			close(fd2);
+
 
 		}
 		close(fd);
