@@ -120,9 +120,9 @@ class TestCar{
 int main (void){
 	int c=10;
 	TestCar test;
+	int a = test.aceleracion();
+	int v = test.velocidad(0,a);
 	for(int i=1;i<=c;i++){
-			int a = test.aceleracion();
-			int c = test.velocidad(0,a);
 			ofstream file;
 			file.open("info_"+to_string(i)+".txt");
 			file << test.id_car() << endl;
@@ -147,7 +147,7 @@ int main (void){
 			file << test.temp_motor() << endl;
 			file << test.temp_refrigerante() << endl;
 			file << test.presion_combustible() << endl;
-			file << test.velocidad(c,a) <<"v" << endl;
+			file << test.velocidad(v,a) << endl;
 			file << test.viraje() << endl;
 			file << test.volante_motor() << endl;
 			file << test.vuelco() << endl;
