@@ -14,9 +14,9 @@ class TestCar{
 			return rnd;
 		}
 
-		char* id_car(){
-			char name[100]={"car_1"};
-			return *name;
+		string id_car(){
+			string name="car_test";
+			return name;
 		}
 
 
@@ -68,7 +68,7 @@ class TestCar{
 		int velocidad(int v,int a){
 			int current=0;
 			current=current+a;
-			if(current<0)			
+			if(current<0)
 				return current=0;
 			else if (current>350)
 				return current=350;
