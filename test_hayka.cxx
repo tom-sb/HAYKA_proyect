@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <climits>
+#include <bsd/stdlib.h>
 #include <ctime>
 #include <unistd.h>
 #include "connect.h"
@@ -12,8 +13,7 @@ class TestCar{
 	private:
 	public:
 		int random_data(int Min,int Max){
-			srand(time(NULL));
-			int rnd = (Min+(rand() % (int)(Max-Min+1)));
+			int rnd = (Min+(arc4random() % (int)(Max-Min+1)));
 			return rnd;
 		}
 
@@ -118,14 +118,15 @@ class TestCar{
 };
 
 int main (void){
-	int c=10;
+	int t=10;
 	TestCar test;
+	int sp=0;
 	int a = test.aceleracion();
-	int v = test.velocidad(0,a);
-	for(int i=1;i<=c;i++){
+	int v = test.velocidad(sp,a);
+	for(int i=1;i<=t;i++){
 			ofstream file;
-			file.open("info_"+to_string(i)+".txt");
-			file << test.id_car() << endl;
+			file.open("value.txt");
+			file << "value_"<<test.id_car() <<".txt"<< endl;
 			file << a << endl;
 			file << test.alta_presion() << endl;
 			file << test.angulo_arbol_levas() << endl;
@@ -147,12 +148,13 @@ int main (void){
 			file << test.temp_motor() << endl;
 			file << test.temp_refrigerante() << endl;
 			file << test.presion_combustible() << endl;
-			file << test.velocidad(v,a) << endl;
+			file << v << endl;
 			file << test.viraje() << endl;
 			file << test.volante_motor() << endl;
 			file << test.vuelco() << endl;
 			file.close();
 			sent_data();
+			sp+=v;
 
 	}
 
