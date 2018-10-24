@@ -6,6 +6,15 @@ Establece conexciones entre en servdidor y clientes(automoviles)
 
 Librerias standard de C,C++ Qt5
 
-**Para Ubuntu**
+**Sistema operativo ArchLinux**
 
-apt-get install qt5-default
+
+**Dependencias**
+Ejecutar hayka.sh como administrador
+
+chmod +x hayka.sh
+./hayka.sh o sh hayka.sh
+
+
+**Compilar test_hayka.cxx**
+g++ -std=c++11 test_hayka.cxx -o test -lbsd
