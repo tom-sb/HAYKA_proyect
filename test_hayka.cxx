@@ -69,8 +69,7 @@ class TestCar{
 		int presion_combustible(){
 			return random_data (0,60);
 		}
-		int velocidad(int vi,int a){
-			int current=0;
+		int velocidad(int current,int a){
 			current=current+a;
 			if(current<0)
 				return current=0;
