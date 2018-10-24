@@ -126,7 +126,7 @@ int main (void){
 	for(int i=1;i<=t;i++){
 			ofstream file;
 			file.open("value.txt");
-			file << "value_"<<test.id_car() <<".txt"<< endl;
+			file << "value_"<<test.id_car() << endl;
 			file << a << endl;
 			file << test.alta_presion() << endl;
 			file << test.angulo_arbol_levas() << endl;
