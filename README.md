@@ -18,4 +18,5 @@ chmod +x hayka.sh
 
 
 **Compilar test_hayka.cxx**
+
 g++ -std=c++11 test_hayka.cxx -o test -lbsd
