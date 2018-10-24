@@ -10,6 +10,7 @@ Librerias standard de C,C++ Qt5
 
 
 **Dependencias**
+
 Ejecutar hayka.sh como administrador
 
 chmod +x hayka.sh
