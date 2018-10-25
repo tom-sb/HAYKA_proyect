@@ -17,12 +17,12 @@ class TestCar{
 			return rnd;
 		}
 
-		char* id_car(){
-			char hostname[HOST_NAME_MAX];
-			gethostname(hostname,HOST_NAME_MAX);
-			return move(hostname);
+		char id_car(){
+		cout << "Ingrese el id del automovil\n";
+		char id(5);
+		cin >> id;
+		return id;
 		}
-
 
 		int temp_motor(){
 			return random_data (70,160);
@@ -69,14 +69,14 @@ class TestCar{
 		int presion_combustible(){
 			return random_data (0,60);
 		}
-		int velocidad(int current,int a){
-			current=current+a;
-			if(current<0)
-				return current=0;
-			else if (current>350)
-				return current=350;
+		int velocidad(int speed,int accel){
+			speed=speed+accel;
+			if(speed<0)
+				return speed=0;
+			else if (speed>350)
+				return speed=350;
 			else
-				return current;
+				return speed;
 		}
 
 		int rotacion_eje_transmision(){
@@ -117,15 +117,15 @@ class TestCar{
 };
 
 int main (void){
-	int t=10;
+
 	TestCar test;
 	int sp=0;
 	int a = test.aceleracion();
 	int v = test.velocidad(sp,a);
-	for(int i=1;i<=t;i++){
+	while(test.engine_start(1)!=0){
 			ofstream file;
 			file.open("value.txt");
-			file << "value_"<<test.id_car() << endl;
+			file << "v"<<test.id_car()<< endl;
 			file << a << endl;
 			file << test.alta_presion() << endl;
 			file << test.angulo_arbol_levas() << endl;
