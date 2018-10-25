@@ -122,10 +122,13 @@ int main (void){
 	int sp=0;
 	int a = test.aceleracion();
 	int v = test.velocidad(sp,a);
+	char i(5) ;
+	i = test.id_car();
+
 	while(test.engine_start(1)!=0){
 			ofstream file;
 			file.open("value.txt");
-			file << "v"<<test.id_car()<< endl;
+			file << "v"<< i << endl;
 			file << a << endl;
 			file << test.alta_presion() << endl;
 			file << test.angulo_arbol_levas() << endl;
