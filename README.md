@@ -25,6 +25,7 @@ g++ -std=c++11 test_hayka.cxx -o test -lbsd
 
 Servidor: El servidor debe tener en una mismo directorio la interfaz y el archivo servidor_hayka.c, no necesita modificar ninguna linea de codigo.
 
+
 Cliente:  En primer lugar debemos mencionar que puede tener varios clientes, limitados por la cantidad de contenedores que 
           tiene la interfaz. Ademas en cada cliente debe hacerse 3 modificaciones:
           
