@@ -27,8 +27,11 @@ Servidor: El servidor debe tener en una mismo directorio la interfaz y el archiv
 
 Cliente:  En primer lugar debemos mencionar que puede tener varios clientes, limitados por la cantidad de contenedores que 
           tiene la interfaz. Ademas en cada cliente debe hacerse 3 modificaciones:
+          
                     modificacion 1: en el archivo test_hayka.cxx debe cambiarse el id_car esta funcion debe retornar un 
                                     numero diferente para cada cliente.
+                                    
                     modificacion 2: en el archivo connect.h linea 17 se debe colocar el ip que tiene el "servidor"
+                    
                     modificacion 3: en el archivo connect.h linea 72 se debe cambiar la ruta correcta donde se guardara el 
                                     archivo value.txt
