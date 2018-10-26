@@ -16,13 +16,18 @@ class TestCar{
 			int rnd = (Min+(arc4random() % (int)(Max-Min+1)));
 			return rnd;
 		}
-
-		char id_car(){
-		cout << "Ingrese el id del automovil\n";
-		char id(5);
-		cin >> id;
-		return id;
+/*
+		char* id_car(){
+			char hostname[HOST_NAME_MAX];
+			gethostname(hostname,HOST_NAME_MAX);
+			cout<<move(hostname);
+			return move(hostname);
 		}
+*/
+		char id_car(){
+			return '1';
+		}
+
 
 		int temp_motor(){
 			return random_data (70,160);
@@ -69,14 +74,14 @@ class TestCar{
 		int presion_combustible(){
 			return random_data (0,60);
 		}
-		int velocidad(int speed,int accel){
-			speed=speed+accel;
-			if(speed<0)
-				return speed=0;
-			else if (speed>350)
-				return speed=350;
+		int velocidad(int current,int a){
+			current=current+a;
+			if(current<0)
+				return current=0;
+			else if (current>350)
+				return current=350;
 			else
-				return speed;
+				return current;
 		}
 
 		int rotacion_eje_transmision(){
@@ -89,16 +94,20 @@ class TestCar{
 			return random_data (0,5);
 		}
 		int inclinacion(){
-			return random_data (-90,90);
+//			return random_data (-90,90);
+			return random_data (0,90);
 		}
 		int viraje(){
-			return random_data (-180,180);
+//			return random_data (-180,180);
+			return random_data (0,360);
 		}
 		int par_motor(){
-			return random_data (-200,200);
+//			return random_data (-200,200);
+			return random_data (0,400);
 		}
 		int aceleracion(){
-			return random_data (-20,50);
+//			return random_data (-20,50);
+			return random_data (0,70);
 		}
 		int presion_deposito(){
 			return random_data (0,280);
@@ -117,18 +126,16 @@ class TestCar{
 };
 
 int main (void){
-
+	int t=100;
 	TestCar test;
-	int sp=0;
+	int sp = 0;
 	int a = test.aceleracion();
 	int v = test.velocidad(sp,a);
-	char i(5) ;
-	i = test.id_car();
-
-	while(test.engine_start(1)!=0){
+	for(int i = 1;i <= t;i++){
 			ofstream file;
 			file.open("value.txt");
-			file << "v"<< i << endl;
+			file <<"v"<<test.id_car()<<endl;
+	//		file <<"v"<<test.id_car()<<i<< endl;
 			file << a << endl;
 			file << test.alta_presion() << endl;
 			file << test.angulo_arbol_levas() << endl;
