@@ -12,7 +12,7 @@ void write_file(char const* name,int val){
 //	FILE *f = fopen("file.txt","a");
 	FILE *f = fopen(name,"a");
 	if (f == NULL){
-		printf("Error opening file!\n");
+		printf("Error abriendo file!\n");
 		exit(1);
 	}
 	fprintf(f,"%d\n",val);
@@ -21,6 +21,7 @@ void write_file(char const* name,int val){
 
 
 void create_file(char const* name){
+	remove(name);
 	FILE *f = fopen(name,"a");
 	fclose(f);
 }
@@ -64,7 +65,7 @@ int main(int argc, char **argv){
 		int val;
 		
 
-		while(1) {
+		while(1){
 			longitud_cliente = sizeof(struct sockaddr_in);
 			//a continuacion llamada a accept()
 			if ((fd2 = accept(fd,(struct sockaddr *)&client,&longitud_cliente)) == -1) {
@@ -73,17 +74,14 @@ int main(int argc, char **argv){
 			}
  
  			recv(fd2,buf,100,0);
-			printf("%s\n",buf);
-			///////////////////////////////////
-			if(buf[0]=='c'){
-				strcpy(name_file,"");
+			if(buf[0]=='v'){
+			//	strcpy(name_file,"");
 				strcpy(name_file,buf);
 				create_file(name_file);
+			}else{
+				val = atoi(buf);
+				write_file(name_file,val);
 			}
-			////////////////////////////////////
-			val = atoi(buf);
-			write_file(name_file,val);
-
 //			printf("%d\n",val);
 			close(fd2);
 
