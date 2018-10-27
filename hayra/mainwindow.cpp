@@ -17,7 +17,7 @@ mainwindow::mainwindow(QWidget *parent) :
 {
     this->ui->setupUi(this);
     QPixmap logo;
-    logo.load("/home/damon/Hayka/hayra/logo.png");
+    logo.load("../hayra/logo.png");
     this->ui->labelHayka->setPixmap(logo);
     actualizar();
     actualizar2();
@@ -25,7 +25,7 @@ mainwindow::mainwindow(QWidget *parent) :
     actualizar4();
     actualizar5();
     QPixmap image;
-    image.load("/home/damon/Hayka/hayra/car.png");
+    image.load("../hayra/car.png");
     
 }
 mainwindow::~mainwindow()
@@ -34,9 +34,9 @@ mainwindow::~mainwindow()
 }
 
 void mainwindow::actualizar(){
-    ifstream in("/home/damon/Hayka/info_2.txt");
+    ifstream in("../v2.txt");
     QPixmap image;
-    image.load("/home/damon/Hayka/hayra/car.png");
+    image.load("../hayra/car.png");
     this->ui->label_21->setPixmap(image);
 
       string s,line;
@@ -72,32 +72,32 @@ void mainwindow::actualizar(){
         if(contador==24) this->ui->pres_deposito->setValue(val);
         if(contador==25) this->ui->alta_presion->setValue(val);
         if(contador<5 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image1.png");
+            image.load("../hayra/image1.png");
             this->ui->label_21->setPixmap(image);
         }
         if(contador>5 && contador<10 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image2.png");
+            image.load("../hayra/image2.png");
             this->ui->label_21->setPixmap(image);
         }
         if(contador>10 && contador<15 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image3.png");
+            image.load("../hayra/image3.png");
             this->ui->label_21->setPixmap(image);
         }
         if(contador>15 && contador<20 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image4.png");
+            image.load("../hayra/image4.png");
             this->ui->label_21->setPixmap(image);
         }
         if(contador>20 && contador<27 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image5.png");
+            image.load("../hayra/image5.png");
             this->ui->label_21->setPixmap(image);
         }
         contador++;
     }
 }
 void mainwindow::actualizar2(){
-    ifstream in("/home/damon/Hayka/info_3.txt");
+    ifstream in("../v3.txt");
     QPixmap image;
-    image.load("/home/damon/Hayka/hayra/car.png");
+    image.load("../hayra/car.png");
     this->ui->label_25->setPixmap(image);
 
       string s,line;
@@ -133,32 +133,32 @@ void mainwindow::actualizar2(){
         if(contador==24) this->ui->pres_deposito_3->setValue(val);
         if(contador==25) this->ui->alta_presion_3->setValue(val);
         if(contador<5 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image1.png");
+            image.load("../hayra/image1.png");
             this->ui->label_25->setPixmap(image);
         }
         if(contador>5 && contador<10 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image2.png");
+            image.load("../hayra/image2.png");
             this->ui->label_25->setPixmap(image);
         }
         if(contador>10 && contador<15 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image3.png");
+            image.load("../hayra/image3.png");
             this->ui->label_25->setPixmap(image);
         }
         if(contador>15 && contador<20 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image4.png");
+            image.load("../hayra/image4.png");
             this->ui->label_25->setPixmap(image);
         }
         if(contador>20 && contador<27 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image5.png");
+            image.load("../hayra/image5.png");
             this->ui->label_25->setPixmap(image);
         }
         contador++;
     }
 }
 void mainwindow::actualizar3(){
-    ifstream in("/home/damon/Hayka/info_4.txt");
+    ifstream in("../v4.txt");
     QPixmap image;
-    image.load("/home/damon/Hayka/hayra/car.png");
+    image.load("../hayra/car.png");
     this->ui->label_215->setPixmap(image);
 
       string s,line;
@@ -194,32 +194,32 @@ void mainwindow::actualizar3(){
         if(contador==24) this->ui->pres_deposito_7->setValue(val);
         if(contador==25) this->ui->alta_presion_7->setValue(val);
         if(contador<5 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image1.png");
+            image.load("../hayra/image1.png");
             this->ui->label_215->setPixmap(image);
         }
         if(contador>5 && contador<10 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image2.png");
+            image.load("../hayra/image2.png");
             this->ui->label_215->setPixmap(image);
         }
         if(contador>10 && contador<15 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image3.png");
+            image.load("../hayra/image3.png");
             this->ui->label_215->setPixmap(image);
         }
         if(contador>15 && contador<20 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image4.png");
+            image.load("../hayra/image4.png");
             this->ui->label_215->setPixmap(image);
         }
         if(contador>20 && contador<27 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image5.png");
+            image.load("../hayra/image5.png");
             this->ui->label_215->setPixmap(image);
         }
         contador++;
     }
 }
 void mainwindow::actualizar4(){
-    ifstream in("/home/damon/Hayka/info_5.txt");
+    ifstream in("../v5.txt");
     QPixmap image;
-    image.load("/home/damon/Hayka/hayra/car.png");
+    image.load("../hayra/car.png");
     this->ui->label_216->setPixmap(image);
 
       string s,line;
@@ -255,32 +255,32 @@ void mainwindow::actualizar4(){
         if(contador==24) this->ui->pres_deposito_8->setValue(val);
         if(contador==25) this->ui->alta_presion_8->setValue(val);
         if(contador<5 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image1.png");
+            image.load("../hayra/image1.png");
             this->ui->label_216->setPixmap(image);
         }
         if(contador>5 && contador<10 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image2.png");
+            image.load("../hayra/image2.png");
             this->ui->label_216->setPixmap(image);
         }
         if(contador>10 && contador<15 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image3.png");
+            image.load("../hayra/image3.png");
             this->ui->label_216->setPixmap(image);
         }
         if(contador>15 && contador<20 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image4.png");
+            image.load("../hayra/image4.png");
             this->ui->label_216->setPixmap(image);
         }
         if(contador>20 && contador<27 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image5.png");
+            image.load("../hayra/image5.png");
             this->ui->label_216->setPixmap(image);
         }
         contador++;
     }
 }
 void mainwindow::actualizar5(){
-    ifstream in("/home/damon/Hayka/info_6.txt");
+    ifstream in("../v6.txt");
     QPixmap image;
-    image.load("/home/damon/Hayka/hayra/car.png");
+    image.load("../hayra/car.png");
     this->ui->label_217->setPixmap(image);
 
       string s,line;
@@ -316,23 +316,23 @@ void mainwindow::actualizar5(){
         if(contador==24) this->ui->pres_deposito_9->setValue(val);
         if(contador==25) this->ui->alta_presion_9->setValue(val);
         if(contador<5 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image1.png");
+            image.load("../hayra/image1.png");
             this->ui->label_217->setPixmap(image);
         }
         if(contador>5 && contador<10 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image2.png");
+            image.load("../hayra/image2.png");
             this->ui->label_217->setPixmap(image);
         }
         if(contador>10 && contador<15 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image3.png");
+            image.load("../hayra/image3.png");
             this->ui->label_217->setPixmap(image);
         }
         if(contador>15 && contador<20 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image4.png");
+            image.load("../hayra/image4.png");
             this->ui->label_217->setPixmap(image);
         }
         if(contador>20 && contador<27 && val<=300){
-            image.load("/home/damon/Hayka/hayra/image5.png");
+            image.load("../hayra/image5.png");
             this->ui->label_217->setPixmap(image);
         }
         contador++;
