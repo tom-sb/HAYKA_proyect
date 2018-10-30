@@ -1,9 +1,9 @@
 #! /bin/bash
 
 
-#yes | sudo pacman -Sy
+yes | sudo pacman -Sy
 
-#yes | sudo pacman -S libbsd qt5-base tmux --needed
+yes | sudo pacman -S libbsd qt5-base tmux --needed
 
 
 git clone https://github.com/tom-sb/HAYKA_proyect.git
@@ -20,8 +20,5 @@ cd $HAYKA/hayra
 
 qmake hayra.pro
 make
-
-
-
 
 
