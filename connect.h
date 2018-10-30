@@ -14,9 +14,9 @@
 
 void client(char const *sensor_info){
 	struct sockaddr_in server;
-	char ip[] = "192.168.0.13";
+//	char ip[] = "192.168.0.13";
 //	char ip[] = "172.16.3.118";
-//	char ip[] = "172.16.3.42";
+	char ip[] = "172.16.3.42";
 //	char ip[] = "192.168.43.189";
 //	char ip[] = "192.168.1.176";
 	int fd, puerto;
